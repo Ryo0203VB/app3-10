@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
   def new
      # Viewへ渡すためのインスタンス変数に空のModelオブジェクトを生成する。
-    @list = List.new  
+    @list = List.new
   end
 
 # 以下を追加
@@ -15,6 +15,7 @@ class ListsController < ApplicationController
   end
 
   def index
+    @lists = List.all
   end
 
   def show
@@ -22,11 +23,11 @@ class ListsController < ApplicationController
 
   def edit
   end
-  
+
   private
   # ストロングパラメータ
   def list_params
     params.require(:list).permit(:title, :body)
   end
-  
+
 end
